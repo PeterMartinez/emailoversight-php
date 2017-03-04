@@ -30,6 +30,17 @@ class EmailOversight
 		}
 		return $this->post('emailvalidation', ['email', 'listid']);
 	}
+
+	public function emailAppend($firstname,$lastname,$postalcode,$formattedaddress=null,$zip4=null)
+	{
+		$this->setParameter('firstname', $firstname);
+		$this->setParameter('lastname', $lastname);
+		$this->setParameter('postalcode', $postalcode);
+		$this->setParameter('formattedaddress', $formattedaddress);
+		$this->setParameter('zip4', $zip4);
+		return $this->post('emailappend', ['firstname', 'lastname','postalcode','formattedaddress','zip4']);
+	}
+
 	protected function get($method, $parameters = [])
 	{
 		$parameters['apitoken'] = $this->parameters['apitoken'];
