@@ -74,9 +74,10 @@ class EmailOversight
 	protected function setParameter($key, $value = null)
 	{
 		$key = strtolower(trim($key));
-		if (!array_key_exists($key, $this->parameters)) {
-			return;
-		}
+		//Commented out because the variables will be dynamic based on endpoint.
+		// if (!array_key_exists($key, $this->parameters)) {
+		// 	return;
+		// }
 		$this->parameters[$key] = $value;
 	}
 	protected function getApiParameters($parameters)
